@@ -9,6 +9,12 @@ import static java.lang.System.exit;
     Emilio hará Spotify y Visual Studio Code y Antonio hará Steam y Google Chrome
  */
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
+/* Rutas:
+* Spotify :
+* Steam: C:\Program Files (x86)\Steam\Steam.exe
+* Chrome: C:\Program Files\Google\Chrome\Application\chrome.exe
+* Visual studio: C:\Users\emili\AppData\Local\Programs\Microsoft VS Code\Code.exe */
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -26,8 +32,6 @@ public class Main {
             System.out.println("---------------------------------");
             System.out.println("Elige una aplicacion: ");
              opcion = sc.nextLine();
-
-
              switch (opcion){
 
                  case "1":

@@ -12,7 +12,7 @@ Rutas:
 * Steam: C:\Program Files (x86)\Steam\Steam.exe
 * Chrome: C:\Program Files\Google\Chrome\Application\chrome.exe
 * Visual studio: C:\Users\emili\AppData\Local\Programs\Microsoft VS Code\Code.exe */
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+// click the <icoo src="AllIcons.Actions.Execute"/> icon in the gutter.
 
 public class Main {
     public static void main(String[] args) {

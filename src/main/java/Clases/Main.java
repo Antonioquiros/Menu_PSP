@@ -6,7 +6,6 @@ import java.util.Scanner;
 /*
     Hacer un menu que abra las siguientes aplicaciones Steam, Google Chrome, Visual Studio Code y Discord.
     Emilio hará Discord y Visual Studio Code y Antonio hará Steam y Google Chrome
-
 Rutas:
 
 * Discord: C:\Users\emili\AppData\Local\Discord\Update.exe --processStart Discord.exe

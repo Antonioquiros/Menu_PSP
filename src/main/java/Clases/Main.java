@@ -13,29 +13,27 @@ Rutas:
 * Steam: C:\Program Files (x86)\Steam\Steam.exe
 * Chrome: C:\Program Files\Google\Chrome\Application\chrome.exe
 * Visual studio: C:\Users\emili\AppData\Local\Programs\Microsoft VS Code\Code.exe */
-// click the <icoo src="AllIcons.Actions.Execute"/> icon in the gutter.
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        // Preguntar al usuario su nombre
-        System.out.print("Por favor, introduce tu nombre: ");
-        String nombreUsuario = sc.nextLine();
+        // Obtener el nombre del usuario automáticamente
+        String nombreUsuario = System.getProperty("user.name");
         System.out.println("¡Hola, " + nombreUsuario + "! Bienvenido al menú de aplicaciones.");
 
         String opcion = "";
         Main main = new Main();
-        while (!opcion.equals("0")) {  // Usar equals para comparar cadenas
+        while (!opcion.equals("0")) {
             System.out.println("---------------------------------");
-            System.out.println("Menu de aplicaciones");
+            System.out.println("Menú de aplicaciones");
             System.out.println("1. Discord");
             System.out.println("2. Visual Studio Code");
             System.out.println("3. Google Chrome");
             System.out.println("4. Steam");
             System.out.println("0. Salir");
             System.out.println("---------------------------------");
-            System.out.print(nombreUsuario + ", elige una aplicacion: ");
+            System.out.print(nombreUsuario + ", elige una aplicación: ");
             opcion = sc.nextLine();
             switch (opcion) {
                 case "1":
@@ -43,7 +41,7 @@ public class Main {
                     System.out.println("Abriendo Discord...");
                     break;
                 case "2":
-                    main.abrirVisualStudioCode(nombreUsuario);
+                    main.abrirVisualStudioCode();
                     System.out.println("Abriendo Visual Studio Code...");
                     break;
                 case "3":
@@ -59,7 +57,7 @@ public class Main {
                     System.exit(0);
                     break;
                 default:
-                    System.out.println("La opcion introducida no es valida");
+                    System.out.println("La opción introducida no es válida.");
                     break;
             }
         }
@@ -68,15 +66,15 @@ public class Main {
 
     private void abrirDiscord(String usuario) {
         try {
-            Runtime.getRuntime().exec("C:\\Users\\"+usuario+"\\AppData\\Local\\Discord\\Update.exe --processStart Discord.exe");
+            Runtime.getRuntime().exec("C:\\Users\\" + usuario + "\\AppData\\Local\\Discord\\Update.exe --processStart Discord.exe");
         } catch (IOException e) {
             System.out.println("Error al abrir Discord: " + e.getMessage());
         }
     }
 
-    private void abrirVisualStudioCode(String usuario) {
+    private void abrirVisualStudioCode() {
         try {
-            Runtime.getRuntime().exec("C:\\Users\\"+usuario+"\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe");
+            Runtime.getRuntime().exec("C:\\Users\\" + System.getProperty("user.name") + "\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe");
         } catch (IOException e) {
             System.out.println("Error al abrir Visual Studio Code: " + e.getMessage());
         }

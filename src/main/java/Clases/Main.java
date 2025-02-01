@@ -1,17 +1,18 @@
 package Clases;
 
-import java.io.IOException;
-import java.util.Scanner;
-
 /*
     Hacer un menu que abra las siguientes aplicaciones Steam, Google Chrome, Visual Studio Code y Discord.
     Emilio hará Discord y Visual Studio Code y Antonio hará Steam y Google Chrome
+
 Rutas:
 
 * Discord: C:\Users\emili\AppData\Local\Discord\Update.exe --processStart Discord.exe
 * Steam: C:\Program Files (x86)\Steam\Steam.exe
 * Chrome: C:\Program Files\Google\Chrome\Application\chrome.exe
 * Visual studio: C:\Users\emili\AppData\Local\Programs\Microsoft VS Code\Code.exe */
+
+import java.io.IOException;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -21,9 +22,10 @@ public class Main {
         String nombreUsuario = System.getProperty("user.name");
         System.out.println("¡Hola, " + nombreUsuario + "! Bienvenido al menú de aplicaciones.");
 
-        String opcion = "";
+        String opcion;
         Main main = new Main();
-        while (!opcion.equals("0")) {
+
+        do {
             System.out.println("---------------------------------");
             System.out.println("Menú de aplicaciones");
             System.out.println("1. Discord");
@@ -34,6 +36,7 @@ public class Main {
             System.out.println("---------------------------------");
             System.out.print(nombreUsuario + ", elige una aplicación: ");
             opcion = sc.nextLine();
+
             switch (opcion) {
                 case "1":
                     main.abrirDiscord(nombreUsuario);
@@ -53,45 +56,37 @@ public class Main {
                     break;
                 case "0":
                     System.out.println("Saliendo del programa... ¡Hasta luego, " + nombreUsuario + "!");
-                    System.exit(0);
                     break;
                 default:
                     System.out.println("La opción introducida no es válida.");
                     break;
             }
-        }
+        } while (!opcion.equals("0"));
+
         sc.close();
     }
 
     private void abrirDiscord(String usuario) {
-        try {
-            Runtime.getRuntime().exec("C:\\Users\\" + usuario + "\\AppData\\Local\\Discord\\Update.exe --processStart Discord.exe");
-        } catch (IOException e) {
-            System.out.println("Error al abrir Discord: " + e.getMessage());
-        }
+        ejecutarProceso("C:\\Users\\" + usuario + "\\AppData\\Local\\Discord\\Update.exe", "--processStart", "Discord.exe");
     }
 
     private void abrirVisualStudioCode() {
-        try {
-            Runtime.getRuntime().exec("C:\\Users\\" + System.getProperty("user.name") + "\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe");
-        } catch (IOException e) {
-            System.out.println("Error al abrir Visual Studio Code: " + e.getMessage());
-        }
+        ejecutarProceso("C:\\Users\\" + System.getProperty("user.name") + "\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe");
     }
 
     private void abrirGoogleChrome() {
-        try {
-            Runtime.getRuntime().exec("C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe");
-        } catch (IOException e) {
-            System.out.println("Error al abrir Google Chrome: " + e.getMessage());
-        }
+        ejecutarProceso("C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe");
     }
 
     private void abrirSteam() {
+        ejecutarProceso("C:\\Program Files (x86)\\Steam\\Steam.exe");
+    }
+
+    private void ejecutarProceso(String... comando) {
         try {
-            Runtime.getRuntime().exec("C:\\Program Files (x86)\\Steam\\Steam.exe");
+            new ProcessBuilder(comando).start();
         } catch (IOException e) {
-            System.out.println("Error al abrir Steam: " + e.getMessage());
+            System.out.println("Error al abrir la aplicación: " + e.getMessage());
         }
     }
 }

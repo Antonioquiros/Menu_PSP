@@ -6,10 +6,10 @@ package Clases;
 
 Rutas:
 
-* Discord: C:\Users\emili\AppData\Local\Discord\Update.exe --processStart Discord.exe
+* Discord: C:\Users\%usuario%\AppData\Local\Discord\Update.exe --processStart Discord.exe
 * Steam: C:\Program Files (x86)\Steam\Steam.exe
 * Chrome: C:\Program Files\Google\Chrome\Application\chrome.exe
-* Visual studio: C:\Users\emili\AppData\Local\Programs\Microsoft VS Code\Code.exe */
+* Visual studio: C:\Users\%usuario%\AppData\Local\Programs\Microsoft VS Code\Code.exe */
 
 import java.io.IOException;
 import java.util.Scanner;

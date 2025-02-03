@@ -11,7 +11,9 @@ Rutas:
 * Chrome: C:\Program Files\Google\Chrome\Application\chrome.exe
 * Visual studio: C:\Users\%usuario%\AppData\Local\Programs\Microsoft VS Code\Code.exe */
 
+import java.awt.*;
 import java.io.IOException;
+import java.net.URI;
 import java.util.Scanner;
 
 public class Main {
@@ -32,6 +34,10 @@ public class Main {
             System.out.println("2. Visual Studio Code");
             System.out.println("3. Google Chrome");
             System.out.println("4. Steam");
+            System.out.println("5. Diario Marca");
+            System.out.println("6. Diario As");
+            System.out.println("7. Diario El Pais");
+            System.out.println("8. Diario Mundo Deportivo");
             System.out.println("0. Salir");
             System.out.println("---------------------------------");
             System.out.print(nombreUsuario + ", elige una aplicación: ");
@@ -53,6 +59,22 @@ public class Main {
                 case "4":
                     main.abrirSteam();
                     System.out.println("Abriendo Steam...");
+                    break;
+                case "5":
+                    main.abrirMarca();
+                    System.out.println("Ya vas a ver al leon");
+                    break;
+                case "6":
+                    main.abrirAs();
+                    System.out.println("Ya vas a ver al as");
+                    break;
+                case "7":
+                    main.abrirElPais();
+                    System.out.println("Ya vas a ver al el pais");
+                    break;
+                case "8":
+                    main.abrirMundoDeportivo();
+                    System.out.println("Ya vas a ver al mundo deportivo");
                     break;
                 case "0":
                     System.out.println("Saliendo del programa... ¡Hasta luego, " + nombreUsuario + "!");
@@ -82,6 +104,19 @@ public class Main {
         ejecutarProceso("C:\\Program Files (x86)\\Steam\\Steam.exe");
     }
 
+    private void abrirMarca(){
+            abrirEnNavegador("https://www.marca.com/");
+    }
+    private void abrirAs(){
+        abrirEnNavegador("https://www.as.com/");
+    }
+    private void abrirElPais(){
+        abrirEnNavegador("https://www.elpais.com/");
+    }
+    private void abrirMundoDeportivo(){
+        abrirEnNavegador("https://www.mundodeportivo.com/");
+    }
+
     private void ejecutarProceso(String... comando) {
         try {
             new ProcessBuilder(comando).start();
@@ -89,4 +124,23 @@ public class Main {
             System.out.println("Error al abrir la aplicación: " + e.getMessage());
         }
     }
+
+
+    private void abrirEnNavegador(String url) {
+        try {
+            // Crear un objeto URI con la URL proporcionada
+            URI uri = new URI(url);
+
+            // Verificar si Desktop es soportado en el sistema
+            if (Desktop.isDesktopSupported()) {
+                Desktop.getDesktop().browse(uri);  // Abrir la URL en el navegador predeterminado
+            } else {
+                System.out.println("No se puede abrir el navegador.");
+            }
+        } catch (Exception e) {
+            System.out.println("Error al abrir la URL: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
 }

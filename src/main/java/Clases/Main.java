@@ -1,7 +1,27 @@
 package Clases;
 
-/* Hacer un menú que abra las siguientes aplicaciones: Steam, Google Chrome, Visual Studio Code y Discord.
-   Emilio abrirá las 4 aplicaciones y Antonio abrirá las 4 páginas web. */
+/*
+Hacer un menú que abra las siguientes aplicaciones:
+
+    - Steam
+
+    - Google Chrome
+
+    - Visual Studio Code
+
+    - Discord.
+
+Y además entre a 4 páginas web:
+
+    - Marca
+
+    - AS
+
+    - El país
+
+    - Mundo deportivo.
+
+Emilio abrirá las 4 aplicaciones y Antonio abrirá las 4 páginas web. */
 
 import java.awt.*;
 import java.io.IOException;

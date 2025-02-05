@@ -34,10 +34,10 @@ public class Main {
             System.out.println("2. Visual Studio Code");
             System.out.println("3. Google Chrome");
             System.out.println("4. Steam");
-            System.out.println("5. Diario Marca");
-            System.out.println("6. Diario As");
-            System.out.println("7. Diario El Pais");
-            System.out.println("8. Diario Mundo Deportivo");
+            System.out.println("5. Paint");
+            System.out.println("6. Spotify");
+            System.out.println("7. Calculadora");
+            System.out.println("8. Bloc de notas");
             System.out.println("0. Salir");
             System.out.println("---------------------------------");
             System.out.print(nombreUsuario + ", elige una aplicación: ");
@@ -61,20 +61,20 @@ public class Main {
                     System.out.println("Abriendo Steam...");
                     break;
                 case "5":
-                    main.abrirMarca();
-                    System.out.println("Ya vas a ver al leon");
+                    main.abrirPaint();
+                    System.out.println("Abriendo Paint");
                     break;
                 case "6":
-                    main.abrirAs();
-                    System.out.println("Ya vas a ver al as");
+                    main.abrirSpoty();
+                    System.out.println("Abriendo Spotify");
                     break;
                 case "7":
-                    main.abrirElPais();
-                    System.out.println("Ya vas a ver al el pais");
+                    main.abrirCalculadora();
+                    System.out.println("Abriendo calculadora");
                     break;
                 case "8":
-                    main.abrirMundoDeportivo();
-                    System.out.println("Ya vas a ver al mundo deportivo");
+                    main.blocDeNotas();
+                    System.out.println("Abriendo bloc de notas");
                     break;
                 case "0":
                     System.out.println("Saliendo del programa... ¡Hasta luego, " + nombreUsuario + "!");
@@ -104,17 +104,17 @@ public class Main {
         ejecutarProceso("C:\\Program Files (x86)\\Steam\\Steam.exe");
     }
 
-    private void abrirMarca(){
-            abrirEnNavegador("https://www.marca.com/");
+    private void abrirPaint(){
+            ejecutarProceso("mspaint");
     }
-    private void abrirAs(){
-        abrirEnNavegador("https://www.as.com/");
+    private void abrirSpoty(){
+        ejecutarProceso("spotify.exe");
     }
-    private void abrirElPais(){
-        abrirEnNavegador("https://www.elpais.com/");
+    private void abrirCalculadora(){
+        ejecutarProceso("calc");
     }
-    private void abrirMundoDeportivo(){
-        abrirEnNavegador("https://www.mundodeportivo.com/");
+    private void blocDeNotas(){
+       ejecutarProceso("notepad.exe");
     }
 
     private void ejecutarProceso(String... comando) {

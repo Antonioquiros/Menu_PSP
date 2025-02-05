@@ -62,19 +62,19 @@ public class Main {
                     break;
                 case "5":
                     main.abrirPaint();
-                    System.out.println("Abriendo Paint");
+                    System.out.println("Abriendo Paint...");
                     break;
                 case "6":
                     main.abrirSpoty();
-                    System.out.println("Abriendo Spotify");
+                    System.out.println("Abriendo Spotify...");
                     break;
                 case "7":
                     main.abrirCalculadora();
-                    System.out.println("Abriendo calculadora");
+                    System.out.println("Abriendo calculadora...");
                     break;
                 case "8":
                     main.blocDeNotas();
-                    System.out.println("Abriendo bloc de notas");
+                    System.out.println("Abriendo bloc de notas...");
                     break;
                 case "0":
                     System.out.println("Saliendo del programa... ¡Hasta luego, " + nombreUsuario + "!");

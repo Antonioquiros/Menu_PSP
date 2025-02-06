@@ -155,7 +155,7 @@ public class Main {
     // Metodo para abrir Spotify
     private void abrirSpotify() {
         // Crear un nuevo proceso para abrir Spotify
-        ejecutarProceso("spotify");
+        ejecutarProceso("spotify.exe");
     }
 
     // Metodo para abrir Paint

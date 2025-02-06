@@ -11,17 +11,15 @@ Hacer un menú que abra las siguientes aplicaciones:
 
     - Discord.
 
-Y además entre a 4 páginas web:
+    - Bloc de notas
 
-    - Marca
+    - Calculadora
 
-    - AS
+    - Spotify
 
-    - El país
+    - Paint.
 
-    - Mundo deportivo.
-
-Emilio abrirá las 4 aplicaciones y Antonio abrirá las 4 páginas web. */
+Emilio abrirá las 4 primeras aplicaciones y Antonio abrirá las 4 siguientes. */
 
 import java.awt.*;
 import java.io.IOException;
@@ -51,10 +49,10 @@ public class Main {
             System.out.println("2. Visual Studio Code");
             System.out.println("3. Google Chrome");
             System.out.println("4. Steam");
-            System.out.println("5. Diario Marca");
-            System.out.println("6. Diario As");
-            System.out.println("7. Diario El Pais");
-            System.out.println("8. Diario Mundo Deportivo");
+            System.out.println("5. Bloc de notas");
+            System.out.println("6. Calculadora");
+            System.out.println("7. Spotify");
+            System.out.println("8. Paint");
             System.out.println("0. Salir");
             System.out.println("---------------------------------");
             // Solicitar al usuario que elija una opción
@@ -84,24 +82,24 @@ public class Main {
                     System.out.println("Abriendo Steam...");
                     break;
                 case "5":
-                    // Si elige "5", abrir la página de Marca
-                    main.abrirMarca();
-                    System.out.println("Ya vas a ver al leon");
+                    // Si elige "5", abrir el bloc de notas
+                    main.abrirBloc();
+                    System.out.println("Abriendo el bloc de notas...");
                     break;
                 case "6":
-                    // Si elige "6", abrir la página de As
-                    main.abrirAs();
-                    System.out.println("Ya vas a ver al as");
+                    // Si elige "6", abrir la calculadora
+                    main.abrirCalc();
+                    System.out.println("Abriendo la calculadora...");
                     break;
                 case "7":
-                    // Si elige "7", abrir la página de El País
-                    main.abrirElPais();
-                    System.out.println("Ya vas a ver al el pais");
+                    // Si elige "7", abrir Spotify
+                    main.abrirSpotify();
+                    System.out.println("Abriendo Spotify...");
                     break;
                 case "8":
-                    // Si elige "8", abrir la página de Mundo Deportivo
-                    main.abrirMundoDeportivo();
-                    System.out.println("Ya vas a ver al mundo deportivo");
+                    // Si elige "8", abrir Paint
+                    main.abrirPaint();
+                    System.out.println("Abriendo Paint...");
                     break;
                 case "0":
                     // Si elige "0", salir del programa
@@ -118,55 +116,55 @@ public class Main {
         sc.close();
     }
 
-    // Método para abrir Discord
+    // Metodo para abrir Discord
     private void abrirDiscord(String usuario) {
         // Abrir Discord como una aplicación
         ejecutarProceso("C:\\Users\\" + usuario + "\\AppData\\Local\\Discord\\Update.exe", "--processStart", "Discord.exe");
     }
 
-    // Método para abrir Visual Studio Code
+    // Metodo para abrir Visual Studio Code
     private void abrirVisualStudioCode() {
         // Abrir Visual Studio Code como una aplicación
         ejecutarProceso("C:\\Users\\" + System.getProperty("user.name") + "\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe");
     }
 
-    // Método para abrir Google Chrome
+    // Metodo para abrir Google Chrome
     private void abrirGoogleChrome() {
         // Abrir Google Chrome como una aplicación
         ejecutarProceso("C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe");
     }
 
-    // Método para abrir Steam
+    // Metodo para abrir Steam
     private void abrirSteam() {
         // Abrir Steam como una aplicación
         ejecutarProceso("C:\\Program Files (x86)\\Steam\\Steam.exe");
     }
 
-    // Método para abrir la página web de Marca en un navegador
-    private void abrirMarca() {
-        // Crear un nuevo proceso para abrir la página web de Marca
-        abrirEnNavegador("https://www.marca.com/");
+    // Metodo para abrir bloc de notas
+    private void abrirBloc() {
+        // Crear un nuevo proceso para abrir el bloc de notas
+        ejecutarProceso("notepad");
     }
 
-    // Método para abrir la página web de As en un navegador
-    private void abrirAs() {
-        // Crear un nuevo proceso para abrir la página web de As
-        abrirEnNavegador("https://www.as.com/");
+    // Metodo para abrir la calculadora
+    private void abrirCalc() {
+        // Crear un nuevo proceso para abrir la calculadora
+        ejecutarProceso("calc");
     }
 
-    // Método para abrir la página web de El País en un navegador
-    private void abrirElPais() {
-        // Crear un nuevo proceso para abrir la página web de El País
-        abrirEnNavegador("https://www.elpais.com/");
+    // Metodo para abrir Spotify
+    private void abrirSpotify() {
+        // Crear un nuevo proceso para abrir Spotify
+        ejecutarProceso("spotify");
     }
 
-    // Método para abrir la página web de Mundo Deportivo en un navegador
-    private void abrirMundoDeportivo() {
-        // Crear un nuevo proceso para abrir la página web de Mundo Deportivo
-        abrirEnNavegador("https://www.mundodeportivo.com/");
+    // Metodo para abrir Paint
+    private void abrirPaint() {
+        // Crear un nuevo proceso para abrir Paint
+        ejecutarProceso("mspaint");
     }
 
-    // Método para ejecutar cualquier proceso (como abrir una aplicación)
+    // Metodo para ejecutar cualquier proceso (como abrir una aplicación)
     private void ejecutarProceso(String... comando) {
         try {
             // Crear un nuevo proceso con los parámetros proporcionados
@@ -177,24 +175,4 @@ public class Main {
         }
     }
 
-    // Método para abrir una URL en un navegador utilizando un proceso separado
-    private void abrirEnNavegador(String url) {
-        try {
-            // Crear un objeto URI con la URL proporcionada
-            URI uri = new URI(url);
-
-            // Verificar si el sistema soporta la funcionalidad de abrir el navegador
-            if (Desktop.isDesktopSupported()) {
-                // Usar un nuevo proceso para abrir la URL en el navegador
-                ProcessBuilder processBuilder = new ProcessBuilder("cmd", "/c", "start", uri.toString());
-                processBuilder.start();  // Ejecutar el proceso para abrir el navegador
-            } else {
-                System.out.println("No se puede abrir el navegador.");
-            }
-        } catch (Exception e) {
-            // Si ocurre un error al abrir la URL, mostrar un mensaje de error
-            System.out.println("Error al abrir la URL: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
 }
